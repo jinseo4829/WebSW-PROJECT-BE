@@ -1,5 +1,5 @@
 import express from 'express';
-import { authMiddleware } from '../middlewares/authMiddlewares';
+import { authMiddleware } from '../middlewares/authMiddlewares.js';
 import {
   createMeet,
   getMyMeets,
@@ -8,7 +8,7 @@ import {
   updateMeet,
   deleteMeet,
   exitMeetOrKick,
-} from '../controllers/meetsControllers';
+} from '../controllers/meetsControllers.js';
 
 const router = express.Router();
 
@@ -32,5 +32,6 @@ router.delete('/:meetId', authMiddleware, deleteMeet);
 
 // DELETE /meets/:meetId/exit/:userId
 router.delete('/:meetId/exit/:userId', authMiddleware, exitMeetOrKick);
+
 
 export default router;
